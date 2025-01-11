@@ -118,6 +118,7 @@ resource "azurerm_redhat_openshift_cluster" "aro-cluster" {
   name                = local.cluster_name
   location            = azurerm_resource_group.aro-rg.location
   resource_group_name = azurerm_resource_group.aro-rg.name
+  tags                = azurerm_resource_group.aro-rg.tags
 
   cluster_profile {
     domain  = "${local.cluster_domain}.com"
