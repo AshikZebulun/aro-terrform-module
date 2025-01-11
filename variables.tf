@@ -13,7 +13,7 @@ variable "cluster_environment" {
   type        = string
 
   validation {
-    condition     = contains(["dev", "pre", "prod"], var.cluster_location)
+    condition     = contains(["dev", "pre", "prod"], var.cluster_environment)
     error_message = "Environment of the Cluster must be 'dev', 'pre' or 'prod'"
   }
 }
