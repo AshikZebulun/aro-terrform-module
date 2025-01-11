@@ -31,7 +31,7 @@ locals {
 resource "azurerm_resource_group" "aro-rg" {
   name     = "${local.cluster_name}-rg"
   location = local.cluster_region
-  tags = local.resource_tags
+  tags     = local.resource_tags
 }
 
 resource "azurerm_virtual_network" "aro-vnet" {
@@ -107,7 +107,7 @@ resource "azuread_service_principal_password" "aro-spn-pass" {
 }
 
 resource "azurerm_role_assignment" "aro-role-assignment" {
-  for_each            = toset(local.roles)
+  for_each             = toset(local.roles)
   scope                = azurerm_virtual_network.aro-vnet.id
   role_definition_name = each.value
   principal_id         = azuread_service_principal.aro-spn.object_id
