@@ -26,8 +26,8 @@ variable "cluster_count" {
 variable "common_tags" {
   description = "Tags to apply to all created Resources."
   type        = map(string)
-  default     = {
-    owner   = "AZ"
+  default = {
+    owner = "AZ"
   }
 }
 
@@ -62,7 +62,7 @@ variable "spn_display_name" {
 variable "domain" {
   type        = string
   description = "Domain for the Cluster."
-  default = null
+  default     = null
 }
 
 variable "pull_secret_path" {

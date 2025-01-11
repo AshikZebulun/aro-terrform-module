@@ -1,5 +1,3 @@
-# aro-terrform-module
-
 # ARO Cluster Terraform Module
 
 This Terraform module provisions an **Azure Red Hat OpenShift (ARO)** cluster in Microsoft Azure. It includes the necessary resources like **Resource Group**, **Virtual Network**, **Subnets**, **Network Security Groups**, and **Red Hat OpenShift Cluster** with proper configurations and tags.
