@@ -119,7 +119,7 @@ resource "azurerm_role_assignment" "aro-role-assignment" {
   ]
 }
 
-data "azurerm_service_principal" "aro-rp-spn" {
+data "azuread_service_principal" "aro-rp-spn" {
   display_name = "Azure Red Hat OpenShift RP"
 }
 
