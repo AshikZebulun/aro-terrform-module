@@ -119,6 +119,23 @@ resource "azurerm_role_assignment" "aro-role-assignment" {
   ]
 }
 
+data "azurerm_service_principal" "aro-rp-spn" {
+  display_name = "Azure Red Hat OpenShift RP"
+}
+
+resource "azurerm_role_assignment" "aro-rp-role-assignment" {
+  for_each             = toset(local.roles)
+  scope                = azurerm_virtual_network.aro-vnet.id
+  role_definition_name = each.value
+  principal_id         = data.azurerm_service_principal.redhatopenshift.id
+
+  depends_on = [
+    azurerm_virtual_network.aro-vnet,
+    azurerm_subnet.aro-master-subnet,
+    azurerm_subnet.aro-worker-subnet
+  ]
+}
+
 
 resource "azurerm_redhat_openshift_cluster" "aro-cluster" {
   name                = local.cluster_name
