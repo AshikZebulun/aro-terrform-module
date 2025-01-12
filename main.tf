@@ -112,7 +112,7 @@ resource "azurerm_role_assignment" "aro-role-assignment" {
   role_definition_name = each.value
   principal_id         = azuread_service_principal.aro-spn.object_id
 
-    depends_on = [
+  depends_on = [
     azurerm_virtual_network.aro-vnet,
     azurerm_subnet.aro-master-subnet,
     azurerm_subnet.aro-worker-subnet
