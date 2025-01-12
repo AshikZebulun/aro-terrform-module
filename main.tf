@@ -127,7 +127,7 @@ resource "azurerm_role_assignment" "aro-rp-role-assignment" {
   for_each             = toset(local.roles)
   scope                = azurerm_virtual_network.aro-vnet.id
   role_definition_name = each.value
-  principal_id         = data.azurerm_service_principal.redhatopenshift.id
+  principal_id         = data.azuread_service_principal.aro-rp-spn.id
 
   depends_on = [
     azurerm_virtual_network.aro-vnet,
