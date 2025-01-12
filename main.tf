@@ -144,7 +144,7 @@ resource "azurerm_redhat_openshift_cluster" "aro-cluster" {
   tags                = azurerm_resource_group.aro-rg.tags
 
   cluster_profile {
-    domain  = "${local.cluster_domain}.com"
+    domain  = local.cluster_domain
     version = var.cluster_version
   }
 
